@@ -1,4 +1,3 @@
-# Basic-Calculator
 def addition(n1, n2):
     sum = n1 + n2
     return sum
@@ -47,5 +46,3 @@ while operation != 5:
     else:
         print("\nEnter proper operation number!")
 
-
- 
