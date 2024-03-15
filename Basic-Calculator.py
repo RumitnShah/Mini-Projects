@@ -1,3 +1,8 @@
+import string
+
+# Get list of all letters (both lowercase and uppercase) using string module
+letters = list(string.ascii_letters)  
+
 def addition(n1, n2):  # Define a function for addition
     sum = n1 + n2
     return sum
@@ -20,35 +25,43 @@ operation = 0  # Initialize variable for operation choice
 while operation != 5:
     # Print menu for the user to choose an arithmetic operation
     print("""\nChoose any Arithmetic Operation you want to perform:
-    (1)Addition
+    (1) Addition
     (2) Subtraction
     (3) Multiplication
     (4) Division
     (5) END --- To close the calculator""")
 
     # Ask user to enter operation choice
-    operation = int(input("Enter the operation number: "))
+    operation = input("\nEnter the operation number: ")
 
-    # Ask user to enter two numbers
-    n1 = float(input("Enter first number: "))
-    n2 = float(input("Enter second number: "))
+    for every_letter in letters:  # Check if the input contains any letters
+        if operation == every_letter:
+            print("Please input numbers instead of characters")
+            break  # Exit the loop if user enters characters
 
-    # Perform the chosen operation based on user input
-    if operation == 1:
-        print("\nThe Addition of numbers is ", addition(n1, n2))
-
-    elif operation == 2:
-        print("\nThe Subtraction of numbers is ", subtraction(n1, n2))
-
-    elif operation == 3:
-        print("\nThe Multiplication of numbers is ", multiplication(n1, n2))
-
-    elif operation == 4:
-        print("\nThe Division of numbers is ", division(n1, n2))
-
-    elif operation == 5:
+    int_operation = int(operation)  # Convert operation to integer
+    if int_operation == 5:
+        print("Calculator is OFF")
         break  # Exit the loop if user chooses to end the program
 
     else:
-        print("\nEnter proper operation number!")   # Error message for invalid operation choice
+        # Ask user to enter two numbers
+        n1 = float(input("Enter first number: "))
+        n2 = float(input("Enter second number: "))
+
+        # Perform the chosen operation based on user input
+        if int_operation == 1:
+            print("\nThe Addition of numbers is ", addition(n1, n2))
+
+        elif int_operation == 2:
+            print("\nThe Subtraction of numbers is ", subtraction(n1, n2))
+
+        elif int_operation == 3:
+            print("\nThe Multiplication of numbers is ", multiplication(n1, n2))
+
+        elif int_operation == 4:
+            print("\nThe Division of numbers is ", division(n1, n2))
+
+        else:
+            print("\nEnter proper operation number!")   # Error message for invalid operation choice
 
