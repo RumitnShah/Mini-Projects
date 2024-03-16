@@ -19,6 +19,10 @@ def division(n1, n2):  # Define a function for division
     divide = n1/n2
     return divide
 
+def average(n1, n2):  # Define a function for average
+    average = (n1 + n2)/2
+    return average
+
 operation = 0  # Initialize variable for operation choice
 
 # Start a loop until the user chooses to end the program
@@ -29,7 +33,8 @@ while operation != 5:
     (2) Subtraction
     (3) Multiplication
     (4) Division
-    (5) END --- To close the calculator""")
+    (5) Average
+    (6) END --- To close the calculator""")
 
     # Ask user to enter operation choice
     operation = input("\nEnter the operation number: ")
@@ -40,7 +45,7 @@ while operation != 5:
             break  # Exit the loop if user enters characters
 
     int_operation = int(operation)  # Convert operation to integer
-    if int_operation == 5:
+    if int_operation == 6:
         print("Calculator is OFF")
         break  # Exit the loop if user chooses to end the program
 
@@ -61,6 +66,9 @@ while operation != 5:
 
         elif int_operation == 4:
             print("\nThe Division of numbers is ", division(n1, n2))
+
+        elif int_operation == 5:
+            print("\nThe Average of numbers is ", average(n1, n2))
 
         else:
             print("\nEnter proper operation number!")   # Error message for invalid operation choice
