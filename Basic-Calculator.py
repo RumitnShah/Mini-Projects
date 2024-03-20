@@ -1,8 +1,3 @@
-import string
-
-# Get list of all letters (both lowercase and uppercase) using string module
-letters = list(string.ascii_letters)  
-
 def addition(n1, n2):  # Define a function for addition
     sum = n1 + n2
     return sum
@@ -39,10 +34,10 @@ while operation != 5:
     # Ask user to enter operation choice
     operation = input("\nEnter the operation number: ")
 
-    for every_letter in letters:  # Check if the input contains any letters
-        if operation == every_letter:
-            print("Please input numbers instead of characters")
-            break  # Exit the loop if user enters characters
+    try:
+        int_operation = int(operation)
+    except ValueError:
+        print("Please input numbers instead of characters")
 
     int_operation = int(operation)  # Convert operation to integer
     if int_operation == 6:
@@ -72,4 +67,3 @@ while operation != 5:
 
         else:
             print("\nEnter proper operation number!")   # Error message for invalid operation choice
-
